@@ -1,0 +1,29 @@
+{{define "base"}}
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{template "title" .}}</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-title" href="/">Briefingfy Blog</a>
+      <nav class="site-nav" aria-label="Navegacao principal">
+        <a href="/">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    {{template "content" .}}
+  </main>
+
+  <footer class="site-footer">
+    <p>Briefingfy Blog.</p>
+  </footer>
+</body>
+</html>
+{{end}}
