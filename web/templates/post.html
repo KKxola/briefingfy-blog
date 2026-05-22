@@ -1,0 +1,20 @@
+{{define "title"}}{{.Post.Title}}{{end}}
+
+{{define "content"}}
+<article class="post">
+  <p><a class="back-link" href="/">Voltar para Home</a></p>
+
+  <header class="post-header">
+    <p class="eyebrow">Post</p>
+    <h1>{{.Post.Title}}</h1>
+    <div class="post-meta">
+      <time datetime="{{.Post.Date.Format "2006-01-02"}}">{{.Post.Date.Format "02/01/2006"}}</time>
+    </div>
+    <p class="post-lead">{{.Post.Summary}}</p>
+  </header>
+
+  <div class="post-body">
+    {{.Post.HTML}}
+  </div>
+</article>
+{{end}}
