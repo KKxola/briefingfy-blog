@@ -1,0 +1,35 @@
+{{define "title"}}Briefingfy Blog{{end}}
+
+{{define "content"}}
+<section class="home-hero" aria-labelledby="home-title">
+  <p class="eyebrow">Blog pessoal</p>
+  <h1 id="home-title">Ideias, notas e aprendizados em pequenos posts.</h1>
+  <p class="hero-summary">Textos curtos para registrar descobertas, estudos e decisoes de projeto.</p>
+</section>
+
+<section class="posts" aria-labelledby="posts-title">
+  <div class="section-heading">
+    <p class="eyebrow">Arquivo</p>
+    <h2 id="posts-title">Posts recentes</h2>
+  </div>
+
+  {{if .Posts}}
+    <ol class="post-list">
+      {{range .Posts}}
+        <li>
+          <article class="post-summary">
+            <div class="post-summary__meta">
+              <time datetime="{{.Date.Format "2006-01-02"}}">{{.Date.Format "02/01/2006"}}</time>
+            </div>
+            <h3><a href="/posts/{{.Slug}}">{{.Title}}</a></h3>
+            <p>{{.Summary}}</p>
+            <a class="read-more" href="/posts/{{.Slug}}">Ler post</a>
+          </article>
+        </li>
+      {{end}}
+    </ol>
+  {{else}}
+    <p class="empty-state">Nenhum post publicado ainda.</p>
+  {{end}}
+</section>
+{{end}}
